@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Drag and Drop items</title>
+	<link rel="stylesheet" type="text/css" href="drag.css">
+</head>
+<body>
+	<h1 class="h1" >Drag and Drop</h1>
+       <div class="container">
+       	<div id="left">
+       		
+       	
+       	<div class="list" draggable="true" >HTML (HyperText Markup Language) is the most basic building block of the Web. </div>
+              <div class="list" draggable="true">
+                <a href="http://getwallpapers.com/wallpaper/full/2/d/f/490230.jpg">Click On link display image</a>  
+
+              </div>
+
+           </div>
+       	<div id="right"></div>
+
+       <button onclick="reset()" style="font-size: 30px;">Reset</button>
+        
+  </div>
+       </div>
+ </div>
+
+      
+      
+       <script type="text/javascript">
+
+        	let lists = document.getElementsByClassName("list");
+    let rightBox = document.getElementById("right");
+    let leftBox = document.getElementById("left");
+
+    for (list of lists) {
+        list.addEventListener("dragstart", function(e) {
+            let selected = e.target;
+        
+
+        rightBox.addEventListener("dragover", function(e) {
+            e.preventDefault();
+        });
+
+        rightBox.addEventListener("drop", function(e) {
+            rightBox.appendChild(selected);
+            selected = null;
+            alert("dragging items successfully!!");
+            
+            
+
+
+        });
+      
+    
+             });
+
+           
+             function reset() 
+            {
+            var targetContainers = document.getElementsByClassName("list");
+
+            // Clear target containers
+            for (var j = 0; j < targetContainers.length; j++)
+             {
+                while (targetContainers[j].firstChild) 
+              {
+                    targetContainers[j].removeChild(targetContainers[j].firstChild);
+                }
+                
+              }
+
+            }
+            
+          }
+
+        
+
+
+
+
+             
+           
+       
+
+    
+
+              
+
+
+
+            
+       
+     
+
+       
+
+
+
+        
+        
+
+
+
+         
+
+       
+
+       </script>
+
+
+</body>
+</html>
